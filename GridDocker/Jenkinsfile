@@ -1,0 +1,10 @@
+node {
+	stage ('SCM checkout'){
+		git "https://github.com/vikkyaradhya/GridProject.git"
+		}
+	stage ('Build'){
+    	dir("GridDocker") {
+	   sh "clean install"
+       }
+	}
+}

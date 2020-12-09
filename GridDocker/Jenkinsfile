@@ -2,7 +2,9 @@ pipeline {
 	agent any
 	stages {
 		stage ('SCM checkout'){
-			git "https://github.com/vikkyaradhya/GridProject.git"
+			steps {
+				git "https://github.com/vikkyaradhya/GridProject.git"
+			}
 		}
 		stage('build') {
 			steps {

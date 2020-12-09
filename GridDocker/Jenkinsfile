@@ -1,9 +1,9 @@
 pipeline {
 	agent any
-	tools {
-		maven 'maven3'
-	}
 	stages {
+		stage ('SCM checkout'){
+			git "https://github.com/vikkyaradhya/GridProject.git"
+		}
 		stage('build') {
 			steps {
 				sh script: 'cd GridDocker'

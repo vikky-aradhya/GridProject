@@ -3,8 +3,9 @@ node {
 		git "https://github.com/vikkyaradhya/GridProject.git"
 		}
 	stage ('Build'){
-    	dir("GridDocker") {
-	   sh "mvn clean install"
-       }
-	}
+    	steps {
+        echo 'Execute Tests'      
+        bat "mvn clean install"
+      }
+     }
 }

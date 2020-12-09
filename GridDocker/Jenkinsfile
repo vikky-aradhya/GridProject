@@ -1,11 +1,22 @@
-node {
-	stage ('SCM checkout'){
-		git "https://github.com/vikkyaradhya/GridProject.git"
+pipeline {
+	agent {
+		node {
+			label 'master'
 		}
-	stage ('Build'){
-    	steps {
-        echo 'Execute Tests'      
-        bat "mvn clean install"
-      }
-     }
+	}
+	
+	options {
+		timestamps()
+	}
+	
+	stages {
+		stage("Checkout, Test $ Publish") {
+			steps {
+				git 'https://github.com/vikkyaradhya/GridProject.git'
+				script {
+					bat(/mvn clean install/)
+				}
+			}
+		}
+	}
 }

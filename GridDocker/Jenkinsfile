@@ -1,16 +1,8 @@
-pipeline {
-	agent any
-	stages {
-		stage ('SCM checkout'){
-			steps {
-				git "https://github.com/vikkyaradhya/GridProject.git"
-			}
-		}
-		stage('build') {
-			steps {
-				sh script: 'cd GridDocker'
-				sh script: 'mvn clean install'
-			}
-		}
+node {
+	stage ('SCM checkout') {
+		git 'https://github.com/vikkyaradhya/GridProject.git'
+	}
+	stage ('Compile-package') {
+		sh 'mvn clean install'
 	}
 }

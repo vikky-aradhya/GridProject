@@ -4,7 +4,7 @@ node {
 		}
 	stage ('Build'){
     	dir("GridDocker") {
-	   sh "clean install"
+	   sh "mvn clean install"
        }
 	}
 }

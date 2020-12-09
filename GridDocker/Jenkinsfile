@@ -1,10 +1,14 @@
-node {
-	stage ('SCM checkout'){
-		git "https://github.com/vikkyaradhya/GridProject.git"
+pipeline {
+	agent any
+	tools {
+		maven 'maven3'
+	}
+	stages {
+		stage('build') {
+			steps {
+				sh script: 'cd GridDocker'
+				sh script: 'mvn clean install'
+			}
 		}
-	stage ('Build'){
-    	dir("GridDocker/") {
-	   sh "clean install"
-       }
 	}
 }

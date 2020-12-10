@@ -84,7 +84,7 @@ public class BasePage {
 	}
 	
 	public static void init_extentReport() {
-		extentHtmlReporter = new ExtentHtmlReporter(new File(System.getProperty("user.dir")+"//target//ExtentReport.html"));
+		extentHtmlReporter = new ExtentHtmlReporter(new File(System.getProperty("user.dir")+"//target//Extent//ExtentReport.html"));
 		extentReporter = new ExtentReports();
 		extentReporter.attachReporter(extentHtmlReporter);
 	}

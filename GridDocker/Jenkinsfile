@@ -2,9 +2,19 @@ node {
 	stage ('SCM checkout') {
 		git 'https://github.com/vikkyaradhya/GridProject.git'
 	}
+	stage ('Clean-package') {
+		dir("GridDocker") {
+			bat 'mvn clean'
+		}
+	}
 	stage ('Compile-package') {
 		dir("GridDocker") {
-			bat 'mvn clean install'
+			bat 'mvn compile'
+		}
+	}
+	stage ('Regression Test') {
+		dir("GridDocker") {
+			bat 'mvn install'
 		}
 	}
 }

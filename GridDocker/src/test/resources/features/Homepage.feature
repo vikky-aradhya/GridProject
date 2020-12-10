@@ -18,8 +18,7 @@ Feature: Login into an application
   Scenario: Testimonials page validation
     Given Testimonials page loaded scuessfully
     And Extract the client name and testimonials and write to file
-    
-    
+       
   @End_to_End
   Scenario: E2E
     Given Login page is loaded

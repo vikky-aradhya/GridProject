@@ -84,9 +84,18 @@ public class BasePage {
 	}
 	
 	public static void init_extentReport() {
-		extentHtmlReporter = new ExtentHtmlReporter(new File(System.getProperty("user.dir")+"//target//Extent//ExtentReport.html"));
-		extentReporter = new ExtentReports();
-		extentReporter.attachReporter(extentHtmlReporter);
+		try {
+			File file = new File(System.getProperty("user.dir")+"//target//Extent");
+			if(!file.exists()) {
+				file.mkdir();
+			}
+			extentHtmlReporter = new ExtentHtmlReporter(new File(System.getProperty("user.dir")+"//target//Extent//ExtentReport.html"));
+			extentReporter = new ExtentReports();
+			extentReporter.attachReporter(extentHtmlReporter);
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}		
 	}
 	
 	public static void create_extentTest(String testName) {

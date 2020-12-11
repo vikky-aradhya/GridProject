@@ -4,7 +4,6 @@ import utils.BasePage;
 
 public class LoginPage extends BasePage {
 
-	//@When("^User opens browser$")
 	public void user_opens_browser(String browserName) throws Throwable {
 		try {
 			openBrowser(browserName);

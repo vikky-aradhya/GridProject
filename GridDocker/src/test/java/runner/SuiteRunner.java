@@ -28,7 +28,7 @@ public class SuiteRunner {
 		List<XmlClass> listClass = new ArrayList<XmlClass>();
 		listClass.add(new XmlClass(CucumberRunner.class));
 
-		if(!(chromeTagList.length == 1) && !chromeTagList[0].equals("")) {
+		if(!chromeTagList[0].isEmpty()) {
 			for (int i = 1; i <= chromeTagList.length; i++) {
 				Map<String, String> chromeTags = new LinkedHashMap<String, String>();
 				chromeTags.put("browserName", "chrome");
@@ -41,7 +41,7 @@ public class SuiteRunner {
 			}
 		}
 
-		if(!(firefoxTagList.length == 1) && !firefoxTagList[0].equals("")) {
+		if(!firefoxTagList[0].isEmpty()) {
 			for (int i = 1; i <= firefoxTagList.length; i++) {
 				Map<String, String> firefoxTags = new LinkedHashMap<String, String>();
 				firefoxTags.put("browserName", "firefox");

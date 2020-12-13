@@ -28,26 +28,30 @@ public class SuiteRunner {
 		List<XmlClass> listClass = new ArrayList<XmlClass>();
 		listClass.add(new XmlClass(CucumberRunner.class));
 
-		for (int i = 1; i <= chromeTagList.length; i++) {
-			Map<String, String> chromeTags = new LinkedHashMap<String, String>();
-			chromeTags.put("browserName", "chrome");
-			chromeTags.put("tagsToRun", chromeTagList[i - 1]);
-			XmlTest xmlTest = new XmlTest(xmlSuite);
-			xmlTest.setName("AutomationChromeTest_" + i);
-			xmlTest.setParameters(chromeTags);
-			xmlTest.setXmlClasses(listClass);		
-			listTest.add(xmlTest);
+		if(!(chromeTagList.length == 1) && !chromeTagList[0].equals("")) {
+			for (int i = 1; i <= chromeTagList.length; i++) {
+				Map<String, String> chromeTags = new LinkedHashMap<String, String>();
+				chromeTags.put("browserName", "chrome");
+				chromeTags.put("tagsToRun", chromeTagList[i - 1]);
+				XmlTest xmlTest = new XmlTest(xmlSuite);
+				xmlTest.setName("AutomationChromeTest_" + i);
+				xmlTest.setParameters(chromeTags);
+				xmlTest.setXmlClasses(listClass);
+				listTest.add(xmlTest);
+			}
 		}
 
-		for (int i = 1; i <= firefoxTagList.length; i++) {
-			Map<String, String> firefoxTags = new LinkedHashMap<String, String>();
-			firefoxTags.put("browserName", "firefox");
-			firefoxTags.put("tagsToRun", firefoxTagList[i - 1]);
-			XmlTest xmlTest = new XmlTest(xmlSuite);
-			xmlTest.setName("AutomationFirefoxTest_" + i);
-			xmlTest.setParameters(firefoxTags);
-			xmlTest.setXmlClasses(listClass);		
-			listTest.add(xmlTest);
+		if(!(firefoxTagList.length == 1) && !firefoxTagList[0].equals("")) {
+			for (int i = 1; i <= firefoxTagList.length; i++) {
+				Map<String, String> firefoxTags = new LinkedHashMap<String, String>();
+				firefoxTags.put("browserName", "firefox");
+				firefoxTags.put("tagsToRun", firefoxTagList[i - 1]);
+				XmlTest xmlTest = new XmlTest(xmlSuite);
+				xmlTest.setName("AutomationFirefoxTest_" + i);
+				xmlTest.setParameters(firefoxTags);
+				xmlTest.setXmlClasses(listClass);
+				listTest.add(xmlTest);
+			}
 		}
 
 		xmlSuite.setTests(listTest);

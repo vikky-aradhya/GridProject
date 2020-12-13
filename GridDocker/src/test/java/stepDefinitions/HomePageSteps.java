@@ -1,6 +1,7 @@
 package stepDefinitions;
 
 import com.aventstack.extentreports.Status;
+import com.aventstack.extentreports.ExtentTest;
 
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;

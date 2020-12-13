@@ -30,6 +30,7 @@ public class BasePage {
 	public static ExtentHtmlReporter extentHtmlReporter;
 	public static ExtentReports extentReporter;
 	public static ExtentTest extentTest;
+	public static ThreadLocal<ExtentTest> extentTestThreadSafe = new ThreadLocal<ExtentTest>();
 	
 	public void openBrowser(String browserName) throws Throwable {
 		if(browserName.equalsIgnoreCase("chrome")) {
@@ -97,13 +98,22 @@ public class BasePage {
 			e.printStackTrace();
 		}		
 	}
-	
-	public static void create_extentTest(String testName) {
+
+	public static ExtentTest create_extentTest(String testName) {
 		extentTest = extentReporter.createTest(testName);
+		return extentTest;
 	}
 	
 	public static void generateExtentReport() {
 		extentReporter.flush();
+	}
+
+	public static synchronized ExtentTest getTest() {
+		return extentTestThreadSafe.get();
+	}
+
+	public static void setTest(ExtentTest tst) {
+		extentTestThreadSafe.set(tst);
 	}
 	
 	public void closeBrowser() {

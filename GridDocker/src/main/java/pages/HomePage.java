@@ -34,23 +34,23 @@ public class HomePage extends BasePage {
 	
 	@FindBy(xpath = "//h2[text()='Experienced professionals who have created thousands of brands.']/following-sibling::p")
 	private WebElement paraThree;
-	
-	@FindBy(xpath = "(//input[@name='firstname'])[3]")
+
+	@FindBy(xpath = "//input[@placeholder='First Name' and not(contains(@data-reactid,'2.1'))]")
 	private WebElement firstNameTxtBox;
-	
-	@FindBy(xpath = "(//input[@name='lastname'])[3]")
+
+	@FindBy(xpath = "//input[@placeholder='Last Name' and not(contains(@data-reactid,'2.1'))]")
 	private WebElement lastNameTxtBox;
-	
-	@FindBy(xpath = "(//input[@name='company'])[3]")
+
+	@FindBy(xpath = "//input[@placeholder='Organization' and not(contains(@data-reactid,'2.1'))]")
 	private WebElement organizationTxtBox;
-	
-	@FindBy(xpath = "(//input[@name='phone'])[2]")
+
+	@FindBy(xpath = "//input[@placeholder='Phone Number' and not(contains(@data-reactid,'2.1'))]")
 	private WebElement phoneTxtBox;
-	
-	@FindBy(xpath = "(//input[@name='email'])[3]")
+
+	@FindBy(xpath = "(//input[@placeholder='Email'])[2]")
 	private WebElement emailTxtBox;
-	
-	@FindBy(xpath = "(//textarea[@name='message'])")
+
+	@FindBy(xpath = "//textarea[@placeholder='What can we help you with?']")
 	private WebElement messageTxtBox;
 	
 	@FindBy(xpath = "//span[text()='About Us']")

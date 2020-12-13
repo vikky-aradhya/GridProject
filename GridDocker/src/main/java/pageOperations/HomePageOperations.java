@@ -34,11 +34,11 @@ public class HomePageOperations extends HomePage {
 		try {
 			int menuCount = driver.findElements(By.xpath("//ul[@class='ubermenu-nav']/li")).size();
 			System.out.println("Menu Count is: "+menuCount);
-			extentTest.log(Status.PASS, "Menu item Count is: "+menuCount);
+			getTest().log(Status.PASS, "Menu item Count is: "+menuCount);
 		}
 		catch(Exception e) {
 			e.printStackTrace();
-			extentTest.log(Status.FAIL, "Failed to Menu item List count ");
+			getTest().log(Status.FAIL, "Failed to Menu item List count ");
 		}
 	}
 	
@@ -48,12 +48,12 @@ public class HomePageOperations extends HomePage {
 			for (int i=1; i <= getMenuTabs().size(); i++) {
 				String menuItemText = driver.findElement(By.xpath("//ul[@class='ubermenu-nav']/li["+i+"]/a/span")).getText();
 				System.out.println(menuItemText);
-				extentTest.log(Status.PASS, "Menu item List Are: "+menuItemText);
+				getTest().log(Status.PASS, "Menu item List Are: "+menuItemText);
 			}
 		}
 		catch(Exception e) {
 			e.printStackTrace();
-			extentTest.log(Status.FAIL, "Failed to Menu item List "+e.getMessage());
+			getTest().log(Status.FAIL, "Failed to Menu item List "+e.getMessage());
 		}
 	}
 	
@@ -64,7 +64,7 @@ public class HomePageOperations extends HomePage {
 		}
 		catch(Exception e) {
 			e.printStackTrace();
-			extentTest.log(Status.FAIL, "Title don't matched ");
+			getTest().log(Status.FAIL, "Title don't matched ");
 		}
 	}
 	
@@ -87,7 +87,7 @@ public class HomePageOperations extends HomePage {
 		
 		catch(Exception e) {
 			e.printStackTrace();
-			extentTest.log(Status.FAIL, "Failed to Capture screenshots");
+			getTest().log(Status.FAIL, "Failed to Capture screenshots");
 		}
 	}
 	
@@ -114,7 +114,7 @@ public class HomePageOperations extends HomePage {
 		}
 		catch(Exception e) {
 			e.printStackTrace();
-			extentTest.log(Status.FAIL, "Failed to the extractioninto excel from barnding page");
+			getTest().log(Status.FAIL, "Failed to the extractioninto excel from barnding page");
 		}
 	}
 	
@@ -161,13 +161,13 @@ public class HomePageOperations extends HomePage {
 			getLastNameTxtBox().sendKeys("NK");
 			getOrgNameTxtBox().sendKeys("ACC");
 			getPhoneTxtBox().sendKeys("123456789");
-			getEmailTxtBox().sendKeys("vikas@test.com");
-			//getMessageTxtBox().sendKeys("Nothing");
+			//getEmailTxtBox().sendKeys("vikas@test.com");
+			getMessageTxtBox().sendKeys("Nothing");
 		}
 		
 		catch(Exception e) {
 			e.printStackTrace();
-			extentTest.log(Status.FAIL, "Failed to Enter the details");
+			getTest().log(Status.FAIL, "Failed to Enter the details");
 		}
 	}
 	
@@ -180,7 +180,7 @@ public class HomePageOperations extends HomePage {
 		}
 		catch(Exception e) {
 			e.printStackTrace();
-			extentTest.log(Status.FAIL, "Failed to get Testimonial ");
+			getTest().log(Status.FAIL, "Failed to get Testimonial ");
 		}
 	}
 	

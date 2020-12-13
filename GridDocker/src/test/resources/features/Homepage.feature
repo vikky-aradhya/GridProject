@@ -1,4 +1,3 @@
-
 Feature: Login into an application
 
   @Login_user
